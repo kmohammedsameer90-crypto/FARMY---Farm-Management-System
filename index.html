@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FARMY - Farm Management</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>🐄 FARMY</h1>
+    <p>Farm Management & Livestock Health Monitoring</p>
+</header>
+
+<nav>
+    <button onclick="showSection('dashboard')">Dashboard</button>
+    <button onclick="showSection('animals')">Animals</button>
+    <button onclick="showSection('vaccination')">Vaccination</button>
+    <button onclick="showSection('visitors')">Visitors</button>
+    <button onclick="showSection('reports')">Reports</button>
+</nav>
+
+<main>
+<section id="dashboard" class="page">
+    <h2>Dashboard</h2>
+    <div class="stats">
+        <div class="card">Total Animals <h2 id="total">0</h2></div>
+        <div class="card">Normal <h2 id="normal">0</h2></div>
+        <div class="card">Sick <h2 id="sick">0</h2></div>
+        <div class="card">Isolated <h2 id="isolated">0</h2></div>
+        <div class="card">Dead <h2 id="dead">0</h2></div>
+    </div>
+    <canvas id="healthChart"></canvas>
+</section>
+
+<section id="animals" class="page hidden">
+    <h2>Animal Management</h2>
+    <input id="animalName" placeholder="Animal Name / ID">
+    <input id="animalType" placeholder="Animal Type">
+    <select id="animalHealth">
+        <option>Normal</option>
+        <option>Sick</option>
+        <option>Isolated</option>
+        <option>Dead</option>
+    </select>
+    <button onclick="addAnimal()">Add Animal</button>
+    <div id="animalList"></div>
+</section>
+
+<section id="vaccination" class="page hidden">
+    <h2>Vaccination Schedule</h2>
+    <input id="vaccineAnimal" placeholder="Animal ID">
+    <input id="vaccineName" placeholder="Vaccine Name">
+    <input id="vaccineDate" type="date">
+    <button onclick="addVaccine()">Add Schedule</button>
+    <div id="vaccineList"></div>
+</section>
+
+<section id="visitors" class="page hidden">
+    <h2>Visitor Log</h2>
+    <input id="visitorName" placeholder="Visitor Name">
+    <input id="visitorPurpose" placeholder="Purpose">
+    <button onclick="addVisitor()">Add Visitor</button>
+    <div id="visitorList"></div>
+</section>
+
+<section id="reports" class="page hidden">
+    <h2>Farm Reports</h2>
+    <div id="reportData"></div>
+    <button onclick="printReport()">Print Report</button>
+</section>
+</main>
+
+<footer>
+    <p>FARMY | Livestock & Health Monitoring System</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
